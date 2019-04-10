@@ -70,4 +70,3 @@ On windows, you have to download CMake tool, source is the CMakeLists.txt direct
   
   and such... there are some tricky bits, no clear instructions or clues on how to deal with them,
   it gets more complex + the final drawing got a stupid deadline + after all this, you'll forget everything you've done
-  # And this is the why, many people offer themselves to do this for you, for money, because they already know... you don't, and you're not interested in knowing.
