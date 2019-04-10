@@ -32,8 +32,23 @@ Main programs starts in src/console_interface.c:
 - src: contains the source code for the program
 
   
+## HOW TO INSTALL & USE
+uhm, long explanation, probably another time. Time for a short one...
+
+You can't just import this in visual studio or some other IDE, you'll get errors.
+
+=> You'll need CMake, on linux if you have CMake installed you can use
+
+```bash
+  sh build.sh
+  sh run.sh
+```
+to start the compilation.
+
+On windows, you have to download CMake tool, source is the CMakeLists.txt directory, and build is the "build" directory
+
   
-  ## CONTRIBUTING
+## CONTRIBUTING
   I want to do this faster, and I need knowledge. I need to test this with your data, and I want feedback. You can contact me on whatsapp via private messages or via github if you're able to.
   
   Computer programs calculate with higher precision, so a small error is to be expected
