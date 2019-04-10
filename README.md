@@ -49,7 +49,7 @@ On windows, you have to download CMake tool, source is the CMakeLists.txt direct
 
   
 ## CONTRIBUTING
-  I want to do this faster, and I need knowledge. I need to test this with your data, and I want feedback. You can contact me on whatsapp via private messages or via github if you're able to.
+  I want to do this faster, and I need knowledge in order to do that. I need to test this with your data, and I want feedback, so you go out there, put in your values and see if something is totally off. You can contact me on whatsapp via private messages or via github if you're able to.
   
   Computer programs calculate with higher precision, so a small error is to be expected
   
