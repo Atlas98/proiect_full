@@ -1,7 +1,5 @@
 # Proiect OM
 
-Some things are not always correct, this program's decision making ability reflects mine, your average computer program can't correctly guess the best option without some knowledge about the subject. So... In order for this program to work properly I need that knowledge.
-
 ## NOTICE
 This program is free, and will be free, commercial use is not allowed. 
 
@@ -49,7 +47,7 @@ On windows, you have to download CMake tool, source is the CMakeLists.txt direct
 
   
 ## CONTRIBUTING
-  I want to do this faster, and I need knowledge in order to do that. I need to test this with your data, and I want feedback, so you go out there, put in your values and see if something is totally off. You can contact me on whatsapp via private messages or via github if you're able to.
+  If something is not right, please contact me to get to the root of the problem, I aim to make this as perfect as possible.
   
   Computer programs calculate with higher precision, so a small error is to be expected
   
