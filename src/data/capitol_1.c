@@ -13,11 +13,11 @@ EXPORT_FUNCTION void cap1_get_data(struct data* db) {
     struct capitol_1_data* capitol1 = &db->puteri_si_randamente; 
    
     capitol1->n_tct = 0.955;
-    capitol1->n_pr  = 0.9925;
     capitol1->n_pLA = 0.985;
+    capitol1->n_pr  = 0.9925;
     capitol1->n_a   = 0.98;
 
-    capitol1->n_tot = capitol1->n_tct * capitol1->n_pr * capitol1->n_pLA * capitol1->n_pLA * capitol1->n_a;
+    capitol1->n_tot = capitol1->n_tct * capitol1->n_pr * capitol1->n_pr * capitol1->n_pLA * capitol1->n_a;
     capitol1->P_I = base_data->P_V / capitol1->n_tot;
 
     capitol1->P_IC  = capitol1->P_I   * base_data->Cs;
