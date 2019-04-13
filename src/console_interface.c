@@ -100,8 +100,9 @@ static int console_main() {
 
 		base_values_create(data, 0, cs, pv, nv, itct, ir, l, g, fm);
 	}
-
-	base_values_init(data);
+	else {
+		base_values_init(data);
+	}
 	base_find_F(data);
 	base_prompt_pick_a(data);
 	base_prompt_pick_c(data);
