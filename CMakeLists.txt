@@ -6,11 +6,6 @@ SET (CMAKE_LIBRARY_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/bin)
 
 add_subdirectory(testapp)
 
-if(UNIX)
-add_subdirectory(socketapp)
-add_subdirectory(serverapp)
-endif(UNIX)
-
 include_directories(${PROJECT_SOURCE_DIR}/src)
 
 
@@ -47,13 +42,6 @@ SET(sources src/structs.h
 
             src/autocad/autocad.h
             src/autocad/autocad.c
-
-            src/networking/message_handler.c
-            src/networking/networking_interface.c
-            src/networking/networking_interface.h
-            src/networking/sockets/sock_internal.h
-            src/networking/sockets/sockets.h
-            src/networking/sockets/sockets_linux.c
 			)
 
 

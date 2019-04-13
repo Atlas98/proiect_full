@@ -4,6 +4,7 @@
 #define JAVA_INTERFACE_ACTIVE 0
 #include <stdio.h>
 
+// TODO: update operations table... but I don't think i'll use it anymore hmm
 // DataOps struct - struct that contains function pointers
 #define EXPORT_OPERATIONS_TABLE 0
 
