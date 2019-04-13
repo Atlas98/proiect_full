@@ -16,7 +16,7 @@ Main programs starts in src/console_interface.c:
   }
   ```
   Code-wise it is not in the best shape, I need to:
-  - delete a lot of garbage code I no longer need
+  - <del>delete a lot of garbage code I no longer need</del>
   - comment some things
   - implement a better interface: I had to rewrite a lot of code, because at first my plan was to load the library in php's codespace and call it's functions but it's a lot more complex. Then, I implemented some networking code to talk to the webserver, but it was complex and it would've took a lot of time. Now, creating a process via proc_open was cleaner and more stable than the networking solution, but it lacks things.
   
