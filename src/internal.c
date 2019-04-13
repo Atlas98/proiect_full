@@ -83,7 +83,7 @@ const struct DataOps data_ops = {
 };
 
 
-EXPORT_FUNCTION struct DataOps* get_data_ops() {
+EXPORT_FUNCTION const struct DataOps* get_data_ops() {
     return &data_ops;
 }
 

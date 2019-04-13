@@ -102,7 +102,7 @@ EXPORT_FUNCTION void cap3_set_material			(struct data* db, int material);
 EXPORT_FUNCTION void cap3_set_simbol			(struct data* db, int simbol);
 EXPORT_FUNCTION void cap3_set_tratament			(struct data* db, int tratament);
 EXPORT_FUNCTION void cap3_set_Dca				(struct data* db, int Dca);
-EXPORT_FUNCTION void cap3_set_Lca               (struct data* db, int Ica);
+EXPORT_FUNCTION void cap3_set_Lca               (struct data* db, real_t Lca);
 EXPORT_FUNCTION void cap3_set_Det(struct data* db, int _Det);
 EXPORT_FUNCTION void cap3_set_Dr(struct data* db, int _Dr);
 

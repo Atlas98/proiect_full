@@ -23,6 +23,7 @@ struct arbore_data {
 	real_t Lumar;
 	real_t Lca;
 	real_t Let;
+	real_t Let_dreapta;
 };
 
 EXPORT_FUNCTION void autocad_generate_arbore(void* filePtr, struct arbore_data* data);

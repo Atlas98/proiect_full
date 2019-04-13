@@ -135,7 +135,7 @@ EXPORT_FUNCTION void cap3_prompt_choose_Dca(struct data* db) {
 	scanf("%d", &alegere);
 	cap3_set_Dca(db, alegere);
 }
-EXPORT_FUNCTION void cap3_set_Lca(struct data* db, int Lca) {
+EXPORT_FUNCTION void cap3_set_Lca(struct data* db, real_t Lca) {
 	db->dimensionare_arbore_1.Lca = Lca;
 }
 EXPORT_FUNCTION void cap3_prompt_choose_Lca(struct data* db, int auto_scurt) {
