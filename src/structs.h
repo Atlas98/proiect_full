@@ -176,6 +176,7 @@ struct capitol_3_data {
 
 	int Det;										// diametrul tronsorului de etansare
 	real_t Let;										// lungimea tronsonului de etansare
+	real_t Let_dreapta; 							// lungimea tronsonului de etansare din partea dreapta
 
 	int Dr;											// diametrul rulmentilor
 	real_t Lr;											// lungimea rulmentilor

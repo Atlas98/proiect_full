@@ -198,17 +198,29 @@ EXPORT_FUNCTION void cap3_solve_dimensions(struct data* db) {
 // [16:51, 28.3.2019] +40 764 440 075: d rotor = d perii +5
 // [16:51, 28.3.2019] +40 764 440 075: d umar = d rotor +5
 	struct capitol_3_data* cap3 = &db->dimensionare_arbore_1;
-	cap3->Lventilator = 60.0/100.0 * cap3->Dca;
-	cap3->Let 		  = 60.0/100.0 * cap3->Det;
-	cap3->Lr 		  = 60.0/100.0 * cap3->Dr;
+	real_t percent_60 = 60.0 / 100.0;
+
+	cap3->Lventilator = percent_60 * cap3->Dca;
+	cap3->Let 		  = percent_60 * cap3->Det;
+	cap3->Lr 		  = percent_60 * cap3->Dr;
+	cap3->Lrotor	  = db->base_data.l; 	// lungimea rotorului e data la inceput
 	
 	cap3->Dperii = cap3->Dr 	+ 5;
 	cap3->Drotor = cap3->Dperii + 5;
 	cap3->Dumar  = cap3->Drotor + 5;
 
-	cap3->Lperii = 60.0/100.0 * cap3->Dperii;
-	cap3->Lrotor = 60.0/100.0 * cap3->Drotor;
-	cap3->Lumar  = 60.0/100.0 * cap3->Dumar;
+	// solve dimensions
+
+	int a = db->base_data.a;
+	int b = db->base_data.b;
+	int c = db->base_data.c;
+
+	// calculeaza cu C	
+	cap3->Let_dreapta = c - cap3->Lr / 2 - cap3->Lca / 2;
+	// calculeaza cu B
+	cap3->Lumar = b - cap3->Lrotor / 2 - cap3->Lr / 2;
+	// calculeaza cu A
+	cap3->Lperii = a - cap3->Lr / 2 - cap3->Lrotor / 2;
 }	
 
 
@@ -280,6 +292,7 @@ EXPORT_FUNCTION void cap3_print_data(void* filePtr, struct data* db) {
 	fprintf(filePtr, "\n");
 	fprintf(filePtr, "Lungimea Ventilatorului (Lventilator): %lf [mm]\n", cap3->Lventilator);
 	fprintf(filePtr, "Lungimea tronsonului de etansare (Let): %lf [mm]\n", cap3->Let);
+	fprintf(filePtr, "Lungimea tronsonului de etansare - dreapta (Let_dreapta): %lf\n", cap3->Let_dreapta);
 	fprintf(filePtr, "Lungimea rulmentului (Lr): %lf [mm]\n", cap3->Lr);
 	fprintf(filePtr, "Lungimea periilor (Lperii) : %lf [mm]\n", cap3->Lperii);
 	fprintf(filePtr, "Lungimea rotorului (Lrotor): %lf [mm]\n", cap3->Lrotor);
