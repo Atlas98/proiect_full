@@ -148,6 +148,9 @@ static int console_main() {
 
 	cap3_prompt_set_Det(data);
   	cap3_prompt_set_Dr(data);
+	cap3_prompt_set_Dperii(data);
+	cap3_prompt_set_Drotor(data);
+	cap3_prompt_set_Dumar(data);
   	cap3_solve_dimensions(data); 
 
 	// capitolul 4

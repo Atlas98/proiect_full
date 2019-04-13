@@ -193,6 +193,41 @@ EXPORT_FUNCTION void cap3_prompt_set_Dr(struct data* db) {
 	cap3_set_Dr(db, alegere);
 }
 
+
+EXPORT_FUNCTION void cap3_set_Dperii(struct data* db, int _Dperii) {
+	db->dimensionare_arbore_1.Dperii = _Dperii;
+}
+EXPORT_FUNCTION void cap3_set_Drotor(struct data* db, int _Drotor) {
+	db->dimensionare_arbore_1.Drotor = _Drotor;
+}
+EXPORT_FUNCTION void cap3_set_Dumar(struct data* db, int _Dumar) {
+	db->dimensionare_arbore_1.Dumar = _Dumar;
+}
+
+EXPORT_FUNCTION void cap3_prompt_set_Dperii(struct data* db) {
+	if(PROMPT_CAP_3) printf("Introdu o valoare pentru Dperii: \n");
+	int alegere;
+	scanf("%d", &alegere);
+	cap3_set_Dperii(db, alegere);
+}
+
+EXPORT_FUNCTION void cap3_prompt_set_Drotor(struct data* db) {
+	if(PROMPT_CAP_3) printf("Introdu o valoare pentru Drotor: \n");
+	int alegere;
+	scanf("%d", &alegere);
+	cap3_set_Drotor(db, alegere);
+}
+
+EXPORT_FUNCTION void cap3_prompt_set_Dumar(struct data* db) {
+	if(PROMPT_CAP_3) printf("Introdu o valoare pentru Dumar: \n");
+	int alegere;
+	scanf("%d", &alegere);
+	cap3_set_Dumar(db, alegere);
+}
+
+
+
+
 EXPORT_FUNCTION void cap3_solve_dimensions(struct data* db) {
 // [16:51, 28.3.2019] +40 764 440 075: d perii = dr + 5
 // [16:51, 28.3.2019] +40 764 440 075: d rotor = d perii +5
@@ -204,10 +239,6 @@ EXPORT_FUNCTION void cap3_solve_dimensions(struct data* db) {
 	cap3->Let 		  = percent_60 * cap3->Det;
 	cap3->Lr 		  = percent_60 * cap3->Dr;
 	cap3->Lrotor	  = db->base_data.l; 	// lungimea rotorului e data la inceput
-	
-	cap3->Dperii = cap3->Dr 	+ 5;
-	cap3->Drotor = cap3->Dperii + 5;
-	cap3->Dumar  = cap3->Drotor + 5;
 
 	// solve dimensions
 

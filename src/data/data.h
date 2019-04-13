@@ -103,14 +103,21 @@ EXPORT_FUNCTION void cap3_set_simbol			(struct data* db, int simbol);
 EXPORT_FUNCTION void cap3_set_tratament			(struct data* db, int tratament);
 EXPORT_FUNCTION void cap3_set_Dca				(struct data* db, int Dca);
 EXPORT_FUNCTION void cap3_set_Lca               (struct data* db, real_t Lca);
-EXPORT_FUNCTION void cap3_set_Det(struct data* db, int _Det);
-EXPORT_FUNCTION void cap3_set_Dr(struct data* db, int _Dr);
+EXPORT_FUNCTION void cap3_set_Det               (struct data* db, int _Det);
+EXPORT_FUNCTION void cap3_set_Dr                (struct data* db, int _Dr);
+EXPORT_FUNCTION void cap3_set_Dperii            (struct data* db, int _Dperii);
+EXPORT_FUNCTION void cap3_set_Drotor            (struct data* db, int _Drotor);
+EXPORT_FUNCTION void cap3_set_Dumar             (struct data* db, int _Dumar);
+
 
 EXPORT_FUNCTION void cap3_prompt_set_material	(struct data* db);
 EXPORT_FUNCTION void cap3_prompt_set_simbol		(struct data* db);
 EXPORT_FUNCTION void cap3_prompt_set_tratament	(struct data* db);
 EXPORT_FUNCTION void cap3_prompt_choose_Dca		(struct data* db);
 EXPORT_FUNCTION void cap3_prompt_choose_Lca     (struct data* db, int auto_scurt);
+EXPORT_FUNCTION void cap3_prompt_set_Dperii     (struct data* db);
+EXPORT_FUNCTION void cap3_prompt_set_Drotor     (struct data* db);
+EXPORT_FUNCTION void cap3_prompt_set_Dumar      (struct data* db);
 
 EXPORT_FUNCTION void cap3_prompt_set_Det(struct data* db);
 EXPORT_FUNCTION void cap3_prompt_set_Dr(struct data* db);

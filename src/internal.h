@@ -5,7 +5,7 @@
 #include <stdio.h>
 
 // DataOps struct - struct that contains function pointers
-#define EXPORT_OPERATIONS_TABLE 1
+#define EXPORT_OPERATIONS_TABLE 0
 
 // Networking module, wheter this program will be used as a daemon rather than interfacing function calls
 #define NETWORKING_MODULE_ENABLED 0
