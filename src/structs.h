@@ -432,7 +432,7 @@ struct DataOps {
 	void (*cap3_set_simbol)(data_ptr db, int simbol);
 	void (*cap3_set_tratament)(data_ptr db, int tratament);
 	void (*cap3_set_Dca)(data_ptr db, int Dca);
-	void (*cap3_set_Lca)(data_ptr db, int Ica);
+	void (*cap3_set_Lca)(data_ptr db, real_t Ica);
 	void (*cap3_set_Det)(data_ptr db, int _Det);
 	void (*cap3_set_Dr)(data_ptr db, int _Dr);
 
@@ -452,7 +452,7 @@ struct DataOps {
 	
 };
 
-EXPORT_FUNCTION struct DataOps* get_data_ops();
+EXPORT_FUNCTION const struct DataOps* get_data_ops();
 
 #endif
 #endif

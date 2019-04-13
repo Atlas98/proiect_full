@@ -261,4 +261,6 @@ INTERNAL_FUNCTION real_t anexa7_get_Y(real_t e) {
     else if(e == e_arr[6]) return Y_arr[6];
     else if(e == e_arr[7]) return Y_arr[7];
     else if(e == e_arr[8]) return Y_arr[8];
+
+	return -1;
 }

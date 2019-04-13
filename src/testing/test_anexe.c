@@ -97,4 +97,6 @@ INTERNAL_FUNCTION int test_anexe_anexa8_get_pana_data() {
 	printf("Hp : %lf\n", dt.hp);
 	printf("Lp_max : %lf\n", dt.Lp_max);
 	printf("Lp_min : %lf\n", dt.Lp_min);
+
+	return 1;
 }

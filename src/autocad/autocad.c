@@ -15,7 +15,7 @@ static void generate_ventilator(void* filePtr, struct arbore_data* data) {
 	fprintf(filePtr, "RECTANGLE %.2lf,%.2lf %.2lf,%.2lf", x1, y1, x2, y2);
 	ENTER();
 }
-static void generate_etansare(void* filePtr, struct arbore_data* data) {
+static void generate_etansare(void* filePtr,  struct arbore_data* data) {
 	real_t x1 = data->Lventilator;
 	real_t y1 = (data->Dumar - data->Det) / 2.0;
 
@@ -61,28 +61,30 @@ static void generate_umar(void* filePtr, struct arbore_data* data) {
 	ENTER();
 }
 
-static void generate_etansare_2(void* filePtr, struct arbore_data* data) {
-	real_t x1 = data->Lventilator + data->Let + data->Lr + data->Lperii + data->Lrotor + data->Lumar;
-	real_t y1 = (data->Dumar - data->Drotor) / 2.0;
-
-	real_t x2 = x1 + data->Let;
-	real_t y2 = y1 + data->Det;
-	fprintf(filePtr, "RECTANGLE %.2lf,%.2lf %.2lf,%.2lf", x1, y1, x2, y2);
-	ENTER();
-}
 static void generate_rulment_2(void* filePtr, struct arbore_data* data) {
 	real_t x1 = data->Lventilator + data->Let + data->Lr + data->Lperii + data->Lrotor \
-		+ data->Lumar + data->Let;
-	real_t y1 = (data->Dumar - data->Det) / 2.0;
+		+ data->Lumar;
+	real_t y1 = (data->Dumar - data->Dr) / 2.0;
 
 	real_t x2 = x1 + data->Lr;
 	real_t y2 = y1 + data->Dr;
 	fprintf(filePtr, "RECTANGLE %.2lf,%.2lf %.2lf,%.2lf", x1, y1, x2, y2);
 	ENTER();
 }
+
+static void generate_etansare_2(void* filePtr, struct arbore_data* data) {
+	real_t x1 = data->Lventilator + data->Let + data->Lr + data->Lperii + data->Lrotor + data->Lumar + data->Lr;
+	real_t y1 = (data->Dumar - data->Det) / 2.0;
+
+	real_t x2 = x1 + data->Let_dreapta;
+	real_t y2 = y1 + data->Det;
+	fprintf(filePtr, "RECTANGLE %.2lf,%.2lf %.2lf,%.2lf", x1, y1, x2, y2);
+	ENTER();
+}
+
 static void generate_roata_curele(void* filePtr, struct arbore_data* data) {
 	real_t x1 = data->Lventilator + data->Let + data->Lr + data->Lperii + data->Lrotor \
-		+ data->Lumar + data->Let + data->Lr;
+		+ data->Lumar + data->Lr + data->Let_dreapta;
 	real_t y1 = (data->Dumar - data->Dca) / 2.0;
 
 	real_t x2 = x1 + data->Lca;
@@ -94,10 +96,13 @@ static void generate_roata_curele(void* filePtr, struct arbore_data* data) {
 static void compute_lengths(struct arbore_data* data) {
 	real_t percent_60 = 60.0 / 100.0;
 	data->Lr = percent_60 * data->Dr;
-	
-	// calculeaza cu C
-	data->Let = data->c - data->Lr / 2 - data->Lca / 2; 
-	
+	data->Let = percent_60 * data->Det;
+	// calculeaza cu C	
+	data->Let_dreapta = data->c - data->Lr / 2 - data->Lca / 2;
+	// calculeaza cu B
+	data->Lumar = data->b - data->Lrotor / 2 - data->Lr / 2;
+	// calculeaza cu A
+	data->Lperii = data->a - data->Lr / 2 - data->Lrotor / 2;
 }
 
 EXPORT_FUNCTION void autocad_generate_arbore(void* filePtr, struct arbore_data* data) {

@@ -15,7 +15,7 @@ EXPORT_FUNCTION void cap4_get_data(struct data* data) {
     cap4->Dr = cap3->Dr;
     cap4->N_I = cap2->N_I;
     cap4->Fr1 = cap3->F_r1;
-    cap4->Fr5 = abs(cap3->F_r5);
+    cap4->Fr5 = (real_t) abs(cap3->F_r5);
     
     real_t Fr_max;
     real_t Fr_min;
@@ -216,20 +216,6 @@ EXPORT_FUNCTION void cap4_compute(struct data* data) {
 
 } // func end
 
-EXPORT_FUNCTION void cap4_compute_a(struct data* data) {
-    struct capitol_4_data* cap4 = &data->calcul_rulmenti;
-    struct capitol_3_data* cap3 = &data->dimensionare_arbore_1;
-    struct capitol_2_data* cap2 = &data->calcul_curele;
-
-} //
-EXPORT_FUNCTION void cap4_compute_b(struct data* data) {
-    struct capitol_4_data* cap4 = &data->calcul_rulmenti;
-    struct capitol_3_data* cap3 = &data->dimensionare_arbore_1;
-    struct capitol_2_data* cap2 = &data->calcul_curele;
-
-
-}
-
 EXPORT_FUNCTION void cap4_print_data(void* filePtr, struct data* data) {
     struct capitol_4_data* cap4 = &data->calcul_rulmenti;
     fprintf(filePtr, "================ Capitolul 4 ==============================\n");
@@ -247,7 +233,7 @@ EXPORT_FUNCTION void cap4_print_data(void* filePtr, struct data* data) {
     fprintf(filePtr, "%d --- %.3lf --- %.2lf -- %.2lf -- %.3lf -- %.0lf --- %.0lf\n", cap4->_1_simbol, cap4->Fa_by_Fr, cap4->_1_X, cap4->_1_Y, cap4->_1_Fe, cap4->_4_L, cap4->_4_Lh);
     fprintf(filePtr, "===========================================================\n");
 
-    fpritnf(filePtr, "\n");
+    fprintf(filePtr, "\n");
     fprintf(filePtr, "b.)\n");
     fprintf(filePtr, "Smb dr - D - B - C - C0 - Fa/C0 --- e\n");
     fprintf(filePtr, "%d  %d %.0lf %.0lf %.1lf %.1lf %.4lf %.4lf\n", cap4->_1_simbol, cap4->Dr, cap4->_1_D, cap4->_1_B, cap4->_1_C, cap4->_1_C0, cap4->_1_Fa_by_C0, cap4->_1_e);
