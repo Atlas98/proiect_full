@@ -30,9 +30,9 @@ EXPORT_FUNCTION void cap5_compute(struct data* data) {
     cap5->sigma_s_a = cap5->Ft_a / (cap5->hp_a/2.0*cap5->Lp_a);
     cap5->tau_f_a = cap5->Ft_a / (cap5->bp_a*cap5->Lp_a);
     // b.)
-    cap5->Ft_a = 2.0*cap1->Mt1_max/cap3->Drotor;
-    cap5->sigma_s_b = cap5->Ft_a / (cap5->hp_a/2.0*cap5->Lp_a);
-    cap5->tau_f_b = cap5->Ft_a / (cap5->bp_a*cap5->Lp_a);
+    cap5->Ft_b = 2.0*cap1->Mt1_max/cap3->Drotor;
+    cap5->sigma_s_b = cap5->Ft_b / (cap5->hp_b/2.0*cap5->Lp_b);
+    cap5->tau_f_b = cap5->Ft_b / (cap5->bp_b*cap5->Lp_b);
 }
 
 EXPORT_FUNCTION void cap5_set_Lp_b(struct data* data, real_t _Lp) {
