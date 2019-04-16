@@ -21,7 +21,8 @@
 
 
 static int console_main();
-// prepare environment
+static int autocad_main();
+
 
 // External program calls this function
 EXPORT_FUNCTION void start_console_app() {
@@ -197,4 +198,8 @@ static int console_main() {
 	*/
 	
 	return 1;
+}
+
+static int autocad_main() {
+
 }
