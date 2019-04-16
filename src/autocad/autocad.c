@@ -21,29 +21,19 @@ static void generate_ventilator(void* filePtr, struct arbore_data* data) {
 	ENTER();
 }
 static void generate_etansare(void* filePtr,  struct arbore_data* data) {
-	double x1 = data->Lventilator;
+	double tesitura_length = (data->Dr - data->Det) / 4.0;
+
+	double x1 = data->Lventilator + tesitura_length;
 	double y1 = (data->Dumar - data->Det) / 2.0;
 
-	double x2 = x1 + data->Let;
+	double x2 = x1 + data->Let - tesitura_length;
 	double y2 = y1 + data->Det;
 	fprintf(filePtr, "RECTANGLE %.2lf,%.2lf %.2lf,%.2lf", x1, y1, x2, y2);
 	ENTER();
-}
-static void generate_rulment(void* filePtr, struct arbore_data* data) {
-	double tesitura_length = (data->Dr - data->Det) / 4.0;
 
-
-	double x1 = data->Lventilator + data->Let + tesitura_length;
-	double y1 = (data->Dumar - data->Dr) / 2.0;
-
-	double x2 = x1 + data->Lr - tesitura_length;
-	double y2 = y1 + data->Dr;
-	fprintf(filePtr, "RECTANGLE %.2lf,%.2lf %.2lf,%.2lf", x1, y1, x2, y2);
-	ENTER();
 
 	double T1x = x1;
 	double T1y = y1;
-	printf("Tesitura length: %lf\n", tesitura_length);
 
 	double T2x = x1 - tesitura_length;
 	double T2y = y1 + tesitura_length;
@@ -64,6 +54,15 @@ static void generate_rulment(void* filePtr, struct arbore_data* data) {
 	ENTER();
 	fprintf(filePtr, "%.2lf,%.2lf", T4x, T4y);
 	ENTER();
+	ENTER();
+}
+static void generate_rulment(void* filePtr, struct arbore_data* data) {
+	double x1 = data->Lventilator + data->Let;
+	double y1 = (data->Dumar - data->Dr) / 2.0;
+
+	double x2 = x1 + data->Lr;
+	double y2 = y1 + data->Dr;
+	fprintf(filePtr, "RECTANGLE %.2lf,%.2lf %.2lf,%.2lf", x1, y1, x2, y2);
 	ENTER();
 }
 static void generate_perii(void* filePtr, struct arbore_data* data) {
@@ -128,15 +127,25 @@ static void generate_rulment_2(void* filePtr, struct arbore_data* data) {
 	double y1 = (data->Dumar - data->Dr) / 2.0;
 
 	//double tesitura_length = 2.5;
+
+	double x2 = x1 + data->Lr;
+	double y2 = y1 + data->Dr;
+	fprintf(filePtr, "RECTANGLE %.2lf,%.2lf %.2lf,%.2lf", x1, y1, x2, y2);
+	ENTER();
+}
+
+static void generate_etansare_2(void* filePtr, struct arbore_data* data) {
+	double x1 = data->Lventilator + data->Let + data->Lr + data->Lperii + data->Lrotor + data->Lumar + data->Lr;
+	double y1 = (data->Dumar - data->Det) / 2.0;
+
 	double tesitura_length = (data->Dr - data->Det) / 4.0;
 
-	double x2 = x1 + data->Lr - tesitura_length;
-	double y2 = y1 + data->Dr;
+	double x2 = x1 + data->Let_dreapta - tesitura_length;
+	double y2 = y1 + data->Det;
 	fprintf(filePtr, "RECTANGLE %.2lf,%.2lf %.2lf,%.2lf", x1, y1, x2, y2);
 	ENTER();
 
 	// tesitura de 2.5 la rulment
-
 	double T1x = x2;
 	double T1y = y2;
 	// going to the right
@@ -145,7 +154,7 @@ static void generate_rulment_2(void* filePtr, struct arbore_data* data) {
 
 	double T3x = T2x;
 	double T3y = y1 + tesitura_length;
-	
+
 	double T4x = T1x;
 	double T4y = y1;
 	fprintf(filePtr, "_PLINE");
@@ -158,16 +167,6 @@ static void generate_rulment_2(void* filePtr, struct arbore_data* data) {
 	ENTER();
 	fprintf(filePtr, "%.2lf,%.2lf", T4x, T4y);
 	ENTER();
-	ENTER();
-}
-
-static void generate_etansare_2(void* filePtr, struct arbore_data* data) {
-	double x1 = data->Lventilator + data->Let + data->Lr + data->Lperii + data->Lrotor + data->Lumar + data->Lr;
-	double y1 = (data->Dumar - data->Det) / 2.0;
-
-	double x2 = x1 + data->Let_dreapta;
-	double y2 = y1 + data->Det;
-	fprintf(filePtr, "RECTANGLE %.2lf,%.2lf %.2lf,%.2lf", x1, y1, x2, y2);
 	ENTER();
 }
 
@@ -188,11 +187,11 @@ static void compute_lengths(struct arbore_data* data) {
 	data->Let = percent_60 * data->Det;
 	data->Lventilator = percent_60 * data->Dventilator;
 	// calculeaza cu C	
-	data->Let_dreapta = data->c - data->Lr / 2 - data->Lca / 2;
+	data->Let_dreapta = data->c - data->Lr / 2.0 - data->Lca / 2.0;
 	// calculeaza cu B
-	data->Lumar = data->b - data->Lrotor / 2 - data->Lr / 2;
+	data->Lumar = data->b - data->Lrotor / 2.0 - data->Lr / 2.0;
 	// calculeaza cu A
-	data->Lperii = data->a - data->Lr / 2 - data->Lrotor / 2;
+	data->Lperii = data->a - data->Lr / 2.0 - data->Lrotor / 2.0;
 }
 
 EXPORT_FUNCTION void autocad_generate_arbore(void* filePtr, struct arbore_data* data) {

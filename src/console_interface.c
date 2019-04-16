@@ -37,21 +37,44 @@ EXPORT_FUNCTION void start_console_app() {
 		return;
 	}
 	struct arbore_data arbore;
-	arbore.a = 600;
-	arbore.b = 500.0;
-	arbore.c = 250.0;
+	/*arbore.a = 320.0;
+	arbore.b = 320.0;
+	arbore.c = 128.0;
 	arbore.Dventilator = 20;
 	arbore.Dca = 20;
-	arbore.Dperii = 45;
-	arbore.Dr = 35;
-	arbore.Drotor = 55;
-	arbore.Dumar = 65;
+	arbore.Dperii = 35;
+	arbore.Dr = 30;
+	arbore.Drotor = 40;
+	arbore.Dumar = 45;
 	arbore.Det = 24;
-	arbore.Lrotor = 550;
+	arbore.Lrotor = 320;
 	arbore.Lca = 36;
+	*/
+	arbore.a = 175.0;
+	arbore.b = 145.0;
+	arbore.c = 75.0;
+	arbore.Lrotor = 160.0;
+
+	arbore.Dventilator = 35;
+	arbore.Dca = 35;
+	arbore.Dperii = 50;
+	arbore.Dr = 45;
+	arbore.Drotor = 55;
+	arbore.Dumar = 60;
+	arbore.Det = 40;
+	arbore.Lca = 58.0;
 
 	autocad_generate_arbore(fptr, &arbore);
-
+	/*
+	Diametrul capatului (Dca): 35 [mm]
+Lungimea capatului (Lca): 58.000000 [mm]
+Diametrul ventilatorului (Dventilator): 35 [mm]
+Diametrul tronsonului de etansare (Det): 40 [mm]
+Diametrul rulmentului (Dr): 45 [mm]
+Diametrul periilor (Dperii) : 50 [mm]
+Diametrul rotorului (Drotor): 55 [mm]
+Diametrul umarului (Dumar): 60 [mm]
+	*/
 	fclose(fptr);
 #endif
 
