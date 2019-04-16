@@ -21,17 +21,20 @@
 #define PROMPT_CAP_4 1
 #define PROMPT_CAP_5 1
 
+// Functions with no real usage, maybe they will be deleted soon
+#define UNUSED 
+
 /* This function makes sure you have all values set before continuing */
 //EXPORT_FUNCTION int check_integrity(struct data* db, int chapter);  // unused
 
 /* load base_data struct for given k from a database stored in-memory 
 	I should come up with a new idea for this, it doesn't apply for all college groups */
 EXPORT_FUNCTION struct data* get_data_struct(int k);						   // locate from in-memory database array
-EXPORT_FUNCTION struct data* data_create();									   // create data, return pointer
-EXPORT_FUNCTION void data_free(struct data*);								   // free memory 
-EXPORT_FUNCTION struct data* data_load_from_file(char* filename);			   // load from file (binary mode) -- not really useful			
-EXPORT_FUNCTION int data_save_to_file(struct data* data, char* filename);      // save to file (binary) -- not really useful
-//EXPORT_FUNCTION void data_load_to_database(struct data* dataPtr, int k);	   // load to the in-memory array || NOT USABLE - use data_create and data_free
+EXPORT_FUNCTION UNUSED struct data* data_create();									   // create data, return pointer
+EXPORT_FUNCTION UNUSED void data_free(struct data*);								   // free memory 
+EXPORT_FUNCTION UNUSED struct data* data_load_from_file(char* filename);			   // load from file (binary mode) -- not really useful			
+EXPORT_FUNCTION UNUSED int data_save_to_file(struct data* data, char* filename);      // save to file (binary) -- not really useful
+
 
 /* base funcs */
 EXPORT_FUNCTION void base_values_init(struct data*);						   // load data for given k
@@ -133,11 +136,17 @@ EXPORT_FUNCTION void cap4_prompt_set_Fa(struct data* data);
 EXPORT_FUNCTION void cap4_compute(struct data* data);
 EXPORT_FUNCTION void cap4_print_data(void* filePtr, struct data* data);
 
+/* capitol 5 funcs */
 EXPORT_FUNCTION void cap5_get_data(struct data* data);
 EXPORT_FUNCTION void cap5_compute(struct data* data);
 EXPORT_FUNCTION void cap5_set_Lp_a(struct data* data, real_t Lp);
 EXPORT_FUNCTION void cap5_set_Lp_b(struct data* data, real_t Lp);
-EXPORT_FUNCTION void cap5_prompt_set_Lp_a(struct data* data);
+EXPORT_FUNCTION void cap5_prompt_set_Lp_a(struct data* data); 
 EXPORT_FUNCTION void cap5_prompt_set_Lp_b(struct data* data);
 EXPORT_FUNCTION void cap5_print_data(void* filePtr, struct data* data);
+
+/* capitol 6 funcs */
+EXPORT_FUNCTION void cap6_get_data(struct data* data);
+
+#undef UNUSED
 #endif

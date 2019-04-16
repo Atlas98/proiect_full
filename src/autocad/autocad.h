@@ -1,33 +1,55 @@
 #ifndef _AUTOCAD_H_
 #define _AUTOCAD_H_
-#include <exports.h>
-#include <structs.h>
+
+#if __linux__
+#define EXPORT_FUNCTION extern
+#elif _WIN32
+#define EXPORT_FUNCTION __declspec(dllexport)
+#endif
 
 struct arbore_data {
-	real_t a;
-	real_t b;
-	real_t c;
+	int a;
+	int b;
+	int c;
 
-	real_t Dventilator;
-	real_t Dr;	// rulment
-	real_t Dperii;
-	real_t Drotor;
-	real_t Dumar;
-	real_t Dca;
-	real_t Det;
+	double Dventilator;
+	double Dr;	// rulment
+	double Dperii;
+	double Drotor;
+	double Dumar;
+	double Dca;
+	double Det;
 
-	real_t Lventilator;
-	real_t Lr;
-	real_t Lperii;
-	real_t Lrotor;
-	real_t Lumar;
-	real_t Lca;
-	real_t Let;
-	real_t Let_dreapta;
+	double Lventilator;
+	double Lr;
+	double Lperii;
+	double Lrotor;
+	double Lumar;
+	double Lca;
+	double Let;
+	double Let_dreapta;
+};
+
+// structuri pentru desenul final
+struct desen_basic_data {
+	int a;
+	int b;
+	int c;
+
+
+
+};
+
+// cu desen_basic_data, se obtine desen_full_data
+struct desen_full_data {
+	int a;
+	int b;
+	int c;
+
 };
 
 EXPORT_FUNCTION void autocad_generate_arbore(void* filePtr, struct arbore_data* data);
-
+EXPORT_FUNCTION void generate_desen_final(void* filePtr, struct desen_basic_data* basic_data);
 
 
 #endif

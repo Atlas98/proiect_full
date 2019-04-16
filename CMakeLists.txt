@@ -42,6 +42,7 @@ SET(sources src/structs.h
 
             src/autocad/autocad.h
             src/autocad/autocad.c
+            src/autocad/desen_final.c
 			)
 
 

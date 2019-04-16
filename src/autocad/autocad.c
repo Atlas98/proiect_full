@@ -7,94 +7,95 @@
 
 
 static void generate_ventilator(void* filePtr, struct arbore_data* data) {
-	real_t x1 = 0;
-	real_t y1 = (data->Dumar - data->Dventilator) / 2.0;
+	double x1 = 0;
+	double y1 = (data->Dumar - data->Dventilator) / 2.0;
 
-	real_t x2 = x1 + data->Lventilator;
-	real_t y2 = y1 + data->Dventilator;
+	double x2 = x1 + data->Lventilator;
+	double y2 = y1 + data->Dventilator;
 	fprintf(filePtr, "RECTANGLE %.2lf,%.2lf %.2lf,%.2lf", x1, y1, x2, y2);
 	ENTER();
 }
 static void generate_etansare(void* filePtr,  struct arbore_data* data) {
-	real_t x1 = data->Lventilator;
-	real_t y1 = (data->Dumar - data->Det) / 2.0;
+	double x1 = data->Lventilator;
+	double y1 = (data->Dumar - data->Det) / 2.0;
 
-	real_t x2 = x1 + data->Let;
-	real_t y2 = y1 + data->Det;
+	double x2 = x1 + data->Let;
+	double y2 = y1 + data->Det;
 	fprintf(filePtr, "RECTANGLE %.2lf,%.2lf %.2lf,%.2lf", x1, y1, x2, y2);
 	ENTER();
 }
 static void generate_rulment(void* filePtr, struct arbore_data* data) {
-	real_t x1 = data->Lventilator + data->Let;
-	real_t y1 = (data->Dumar - data->Dr) / 2.0;
+	double x1 = data->Lventilator + data->Let;
+	double y1 = (data->Dumar - data->Dr) / 2.0;
 
-	real_t x2 = x1 + data->Lr;
-	real_t y2 = y1 + data->Dr;
+	double x2 = x1 + data->Lr;
+	double y2 = y1 + data->Dr;
 	fprintf(filePtr, "RECTANGLE %.2lf,%.2lf %.2lf,%.2lf", x1, y1, x2, y2);
 	ENTER();
 }
 static void generate_perii(void* filePtr, struct arbore_data* data) {
-	real_t x1 = data->Lventilator + data->Let + data->Lr;
-	real_t y1 = (data->Dumar - data->Dperii) / 2.0;
+	double x1 = data->Lventilator + data->Let + data->Lr;
+	double y1 = (data->Dumar - data->Dperii) / 2.0;
 
-	real_t x2 = x1 + data->Lperii;
-	real_t y2 = y1 + data->Dperii;
+	double x2 = x1 + data->Lperii;
+	double y2 = y1 + data->Dperii;
 	fprintf(filePtr, "RECTANGLE %.2lf,%.2lf %.2lf,%.2lf", x1, y1, x2, y2);
 	ENTER();
 }
 static void generate_rotor(void* filePtr, struct arbore_data* data) {
-	real_t x1 = data->Lventilator + data->Let + data->Lr + data->Lperii;
-	real_t y1 = (data->Dumar - data->Drotor) / 2.0;
+	double x1 = data->Lventilator + data->Let + data->Lr + data->Lperii;
+	double y1 = (data->Dumar - data->Drotor) / 2.0;
 
-	real_t x2 = x1 + data->Lrotor;
-	real_t y2 = y1 + data->Drotor;
+	double x2 = x1 + data->Lrotor;
+	double y2 = y1 + data->Drotor;
 	fprintf(filePtr, "RECTANGLE %.2lf,%.2lf %.2lf,%.2lf", x1, y1, x2, y2);
 	ENTER();
 }
 static void generate_umar(void* filePtr, struct arbore_data* data) {
-	real_t x1 = data->Lventilator + data->Let + data->Lr + data->Lperii + data->Lrotor;
-	real_t y1 = 0;
+	double x1 = data->Lventilator + data->Let + data->Lr + data->Lperii + data->Lrotor;
+	double y1 = 0;
+	// Are tesitura
 
-	real_t x2 = x1 + data->Lumar;
-	real_t y2 = y1 + data->Dumar;
+	double x2 = x1 + data->Lumar;
+	double y2 = y1 + data->Dumar;
 	fprintf(filePtr, "RECTANGLE %.2lf,%.2lf %.2lf,%.2lf", x1, y1, x2, y2);
 	ENTER();
 }
 
 static void generate_rulment_2(void* filePtr, struct arbore_data* data) {
-	real_t x1 = data->Lventilator + data->Let + data->Lr + data->Lperii + data->Lrotor \
+	double x1 = data->Lventilator + data->Let + data->Lr + data->Lperii + data->Lrotor \
 		+ data->Lumar;
-	real_t y1 = (data->Dumar - data->Dr) / 2.0;
+	double y1 = (data->Dumar - data->Dr) / 2.0;
 
-	real_t x2 = x1 + data->Lr;
-	real_t y2 = y1 + data->Dr;
+	double x2 = x1 + data->Lr;
+	double y2 = y1 + data->Dr;
 	fprintf(filePtr, "RECTANGLE %.2lf,%.2lf %.2lf,%.2lf", x1, y1, x2, y2);
 	ENTER();
 }
 
 static void generate_etansare_2(void* filePtr, struct arbore_data* data) {
-	real_t x1 = data->Lventilator + data->Let + data->Lr + data->Lperii + data->Lrotor + data->Lumar + data->Lr;
-	real_t y1 = (data->Dumar - data->Det) / 2.0;
+	double x1 = data->Lventilator + data->Let + data->Lr + data->Lperii + data->Lrotor + data->Lumar + data->Lr;
+	double y1 = (data->Dumar - data->Det) / 2.0;
 
-	real_t x2 = x1 + data->Let_dreapta;
-	real_t y2 = y1 + data->Det;
+	double x2 = x1 + data->Let_dreapta;
+	double y2 = y1 + data->Det;
 	fprintf(filePtr, "RECTANGLE %.2lf,%.2lf %.2lf,%.2lf", x1, y1, x2, y2);
 	ENTER();
 }
 
 static void generate_roata_curele(void* filePtr, struct arbore_data* data) {
-	real_t x1 = data->Lventilator + data->Let + data->Lr + data->Lperii + data->Lrotor \
+	double x1 = data->Lventilator + data->Let + data->Lr + data->Lperii + data->Lrotor \
 		+ data->Lumar + data->Lr + data->Let_dreapta;
-	real_t y1 = (data->Dumar - data->Dca) / 2.0;
+	double y1 = (data->Dumar - data->Dca) / 2.0;
 
-	real_t x2 = x1 + data->Lca;
-	real_t y2 = y1 + data->Dca;
+	double x2 = x1 + data->Lca;
+	double y2 = y1 + data->Dca;
 	fprintf(filePtr, "RECTANGLE %.2lf,%.2lf %.2lf,%.2lf", x1, y1, x2, y2);
 	ENTER();
 }
 
 static void compute_lengths(struct arbore_data* data) {
-	real_t percent_60 = 60.0 / 100.0;
+	double percent_60 = 60.0 / 100.0;
 	data->Lr = percent_60 * data->Dr;
 	data->Let = percent_60 * data->Det;
 	// calculeaza cu C	
