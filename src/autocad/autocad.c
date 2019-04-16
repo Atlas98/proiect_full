@@ -1,6 +1,11 @@
 #include "autocad.h"
 #include <stdio.h>
 
+
+/*	Autocad.c
+ Se genereaza primul desen only
+*/
+
 #define ENTER()	fprintf(filePtr, "\n")
 #define COMMENT(comment) fprintf(filePtr, comment); ENTER(); //	Print comment then newline
 #define OSMODE(value) fprintf(filePtr, "OSMODE %d", value); ENTER();
@@ -25,12 +30,40 @@ static void generate_etansare(void* filePtr,  struct arbore_data* data) {
 	ENTER();
 }
 static void generate_rulment(void* filePtr, struct arbore_data* data) {
-	double x1 = data->Lventilator + data->Let;
+	double tesitura_length = (data->Dr - data->Det) / 4.0;
+
+
+	double x1 = data->Lventilator + data->Let + tesitura_length;
 	double y1 = (data->Dumar - data->Dr) / 2.0;
 
-	double x2 = x1 + data->Lr;
+	double x2 = x1 + data->Lr - tesitura_length;
 	double y2 = y1 + data->Dr;
 	fprintf(filePtr, "RECTANGLE %.2lf,%.2lf %.2lf,%.2lf", x1, y1, x2, y2);
+	ENTER();
+
+	double T1x = x1;
+	double T1y = y1;
+	printf("Tesitura length: %lf\n", tesitura_length);
+
+	double T2x = x1 - tesitura_length;
+	double T2y = y1 + tesitura_length;
+
+	double T3x = T2x;
+	double T3y = y2 - tesitura_length;
+
+	double T4x = x1;
+	double T4y = y2;
+
+	fprintf(filePtr, "_PLINE");
+	ENTER();
+	fprintf(filePtr, "%.2lf,%.2lf", T1x, T1y);
+	ENTER();
+	fprintf(filePtr, "%.2lf,%.2lf", T2x, T2y);
+	ENTER();
+	fprintf(filePtr, "%.2lf,%.2lf", T3x, T3y);
+	ENTER();
+	fprintf(filePtr, "%.2lf,%.2lf", T4x, T4y);
+	ENTER();
 	ENTER();
 }
 static void generate_perii(void* filePtr, struct arbore_data* data) {
@@ -49,16 +82,43 @@ static void generate_rotor(void* filePtr, struct arbore_data* data) {
 	double x2 = x1 + data->Lrotor;
 	double y2 = y1 + data->Drotor;
 	fprintf(filePtr, "RECTANGLE %.2lf,%.2lf %.2lf,%.2lf", x1, y1, x2, y2);
+
 	ENTER();
 }
 static void generate_umar(void* filePtr, struct arbore_data* data) {
 	double x1 = data->Lventilator + data->Let + data->Lr + data->Lperii + data->Lrotor;
 	double y1 = 0;
-	// Are tesitura
 
-	double x2 = x1 + data->Lumar;
+	// la umar, tesitura de 5
+	//double tesitura_length = 5;
+	double tesitura_length = (data->Dumar - data->Drotor) / 2.0;
+
+	double x2 = x1 + data->Lumar - tesitura_length;
 	double y2 = y1 + data->Dumar;
 	fprintf(filePtr, "RECTANGLE %.2lf,%.2lf %.2lf,%.2lf", x1, y1, x2, y2);
+	ENTER();
+	
+	double T1x = x2;
+	double T1y = y2;
+	// going to the right
+	double T2x = T1x + tesitura_length;
+	double T2y = T1y - tesitura_length;
+
+	double T3x = T2x;
+	double T3y = y1 + tesitura_length;
+	
+	double T4x = T1x;
+	double T4y = y1;
+	fprintf(filePtr, "_PLINE");
+	ENTER();
+	fprintf(filePtr, "%.2lf,%.2lf", T1x, T1y);
+	ENTER();
+	fprintf(filePtr, "%.2lf,%.2lf", T2x, T2y);
+	ENTER();
+	fprintf(filePtr, "%.2lf,%.2lf", T3x, T3y);
+	ENTER();
+	fprintf(filePtr, "%.2lf,%.2lf", T4x, T4y);
+	ENTER();
 	ENTER();
 }
 
@@ -67,9 +127,37 @@ static void generate_rulment_2(void* filePtr, struct arbore_data* data) {
 		+ data->Lumar;
 	double y1 = (data->Dumar - data->Dr) / 2.0;
 
-	double x2 = x1 + data->Lr;
+	//double tesitura_length = 2.5;
+	double tesitura_length = (data->Dr - data->Det) / 4.0;
+
+	double x2 = x1 + data->Lr - tesitura_length;
 	double y2 = y1 + data->Dr;
 	fprintf(filePtr, "RECTANGLE %.2lf,%.2lf %.2lf,%.2lf", x1, y1, x2, y2);
+	ENTER();
+
+	// tesitura de 2.5 la rulment
+
+	double T1x = x2;
+	double T1y = y2;
+	// going to the right
+	double T2x = T1x + tesitura_length;
+	double T2y = T1y - tesitura_length;
+
+	double T3x = T2x;
+	double T3y = y1 + tesitura_length;
+	
+	double T4x = T1x;
+	double T4y = y1;
+	fprintf(filePtr, "_PLINE");
+	ENTER();
+	fprintf(filePtr, "%.2lf,%.2lf", T1x, T1y);
+	ENTER();
+	fprintf(filePtr, "%.2lf,%.2lf", T2x, T2y);
+	ENTER();
+	fprintf(filePtr, "%.2lf,%.2lf", T3x, T3y);
+	ENTER();
+	fprintf(filePtr, "%.2lf,%.2lf", T4x, T4y);
+	ENTER();
 	ENTER();
 }
 
@@ -98,6 +186,7 @@ static void compute_lengths(struct arbore_data* data) {
 	double percent_60 = 60.0 / 100.0;
 	data->Lr = percent_60 * data->Dr;
 	data->Let = percent_60 * data->Det;
+	data->Lventilator = percent_60 * data->Dventilator;
 	// calculeaza cu C	
 	data->Let_dreapta = data->c - data->Lr / 2 - data->Lca / 2;
 	// calculeaza cu B

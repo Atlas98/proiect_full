@@ -47,16 +47,8 @@ EXPORT_FUNCTION void start_console_app() {
 	arbore.Drotor = 55;
 	arbore.Dumar = 65;
 	arbore.Det = 24;
-
-	real_t percent_60 = 60.0 / 100.0;
-
-	arbore.Lventilator = arbore.Dventilator * percent_60;
-	arbore.Lperii = arbore.Dperii * percent_60;
-	arbore.Lr = arbore.Dr * percent_60;
 	arbore.Lrotor = 550;
-	arbore.Lumar = arbore.Dumar * percent_60;
 	arbore.Lca = 36;
-	arbore.Let = arbore.Det * percent_60;
 
 	autocad_generate_arbore(fptr, &arbore);
 
