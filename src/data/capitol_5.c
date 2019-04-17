@@ -45,13 +45,13 @@ EXPORT_FUNCTION void cap5_set_Lp_a(struct data* data, real_t _Lp) {
 
 EXPORT_FUNCTION void cap5_prompt_set_Lp_a(struct data* data) {
     if(PROMPT_CAP_5) printf("Introdu valoarea lui Lp intre %lf si %lf: \n", data->pene_paralele.Lp_min_a, data->pene_paralele.Lp_max_a);
-    real_t alegere;
+    real_t alegere = 0;
     scanf("%lf", &alegere);
     cap5_set_Lp_a(data, alegere);
 }
 EXPORT_FUNCTION void cap5_prompt_set_Lp_b(struct data* data) {
     if(PROMPT_CAP_5) printf("Introdu valoarea lui Lp intre %lf si %lf: \n", data->pene_paralele.Lp_min_b, data->pene_paralele.Lp_max_b);
-    real_t alegere;
+    real_t alegere =0;
     scanf("%lf", &alegere);
     cap5_set_Lp_b(data, alegere);
 }
