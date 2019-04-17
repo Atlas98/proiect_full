@@ -2,8 +2,8 @@
 #include <data/anexe/anexe.h>
 #include <exports.h>
 
-INTERNAL_FUNCTION struct coeficienti_concentratori anexa9_get_concentratori(real_t sigma_r) {
-	struct coeficienti_concentratori data = { 0 };
+INTERNAL_FUNCTION struct anexa9_coeficienti_concentratori anexa9_get_concentratori(real_t sigma_r) {
+	struct anexa9_coeficienti_concentratori data = { 0 };
 	if (sigma_r < 600) {
 		data.beta_k_sigma = 1.46;
 		data.beta_k_tau = 1.54;

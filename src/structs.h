@@ -313,12 +313,18 @@ struct capitol_5_data {
 
 struct capitol_6_data {
 	real_t sigma_i_max_3;
+	real_t sigma_iv_3;
+
 	real_t tau_t_max_3;
 	real_t tau_tv_3;
-	
+
 	// anexa 9.1
 	real_t beta_k_sigma_3;
 	real_t beta_k_tau_3;
+
+	real_t epsilon_sigma_3;
+	real_t epsilon_tau_3;
+
 	// anexa 9.3
 	real_t gamma_3;
 	real_t c_sigma_3;

@@ -117,11 +117,11 @@ INTERNAL_FUNCTION struct anexa8_pana_data anexa8_get_pana_data(real_t dca);
 
 
 /* anexa 9 */
-struct coeficienti_concentratori {
+struct anexa9_coeficienti_concentratori {
 	real_t beta_k_sigma;
 	real_t beta_k_tau;
 };
-INTERNAL_FUNCTION struct coeficienti_concentratori anexa9_get_concentratori(real_t sigma_r);
+INTERNAL_FUNCTION struct anexa9_coeficienti_concentratori anexa9_get_concentratori(real_t sigma_r);
 
 
 #endif
