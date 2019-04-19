@@ -244,8 +244,8 @@ EXPORT_FUNCTION void cap4_print_data(void* filePtr, struct data* data) {
     fprintf(filePtr, "\n");
     fprintf(filePtr, "Smb --- Fa/Fr ----- X -------- Y ------ Fe ------------ L -------- Lh\n");
     fprintf(filePtr, "%d --- %.3lf --- %.2lf -- %.2lf -- %.3lf -- %.0lf --- %.0lf\n", cap4->_1_simbol, cap4->Fa_by_Fr_b, cap4->_1_X_b, cap4->_1_Y_b, cap4->_1_Fe_b, cap4->_1_L_b, cap4->_1_Lh_b);
-    fprintf(filePtr, "%d --- %.3lf --- %.2lf -- %.2lf -- %.3lf -- %.0lf --- %.0lf\n", cap4->_1_simbol, cap4->Fa_by_Fr_b, cap4->_1_X_b, cap4->_1_Y_b, cap4->_1_Fe_b, cap4->_2_L_b, cap4->_2_Lh_b);
-    fprintf(filePtr, "%d --- %.3lf --- %.2lf -- %.2lf -- %.3lf -- %.0lf --- %.0lf\n", cap4->_1_simbol, cap4->Fa_by_Fr_b, cap4->_1_X_b, cap4->_1_Y_b, cap4->_1_Fe_b, cap4->_3_L_b, cap4->_3_Lh_b);
-    fprintf(filePtr, "%d --- %.3lf --- %.2lf -- %.2lf -- %.3lf -- %.0lf --- %.0lf\n", cap4->_1_simbol, cap4->Fa_by_Fr_b, cap4->_1_X_b, cap4->_1_Y_b, cap4->_1_Fe_b, cap4->_4_L_b, cap4->_4_Lh_b);
+    fprintf(filePtr, "%d --- %.3lf --- %.2lf -- %.2lf -- %.3lf -- %.0lf --- %.0lf\n", cap4->_2_simbol, cap4->Fa_by_Fr_b, cap4->_1_X_b, cap4->_1_Y_b, cap4->_1_Fe_b, cap4->_2_L_b, cap4->_2_Lh_b);
+    fprintf(filePtr, "%d --- %.3lf --- %.2lf -- %.2lf -- %.3lf -- %.0lf --- %.0lf\n", cap4->_3_simbol, cap4->Fa_by_Fr_b, cap4->_1_X_b, cap4->_1_Y_b, cap4->_1_Fe_b, cap4->_3_L_b, cap4->_3_Lh_b);
+    fprintf(filePtr, "%d --- %.3lf --- %.2lf -- %.2lf -- %.3lf -- %.0lf --- %.0lf\n", cap4->_4_simbol, cap4->Fa_by_Fr_b, cap4->_1_X_b, cap4->_1_Y_b, cap4->_1_Fe_b, cap4->_4_L_b, cap4->_4_Lh_b);
     fprintf(filePtr, "===========================================================\n");
 }

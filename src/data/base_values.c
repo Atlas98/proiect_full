@@ -30,17 +30,17 @@ EXPORT_FUNCTION void base_values_init(struct data* db) {
 			db->base_data.G = 200;
 			db->base_data.F_m = 500;
 		break;
-        case 7:
-            db->base_data.k     = 7;
-            db->base_data.Cs    = 1.4;
-            db->base_data.P_V   = 1.7;
-            db->base_data.n_V   = 150;
-            db->base_data.i_TCT = 2.5;
-            db->base_data.i_R   = 6.3;
-            db->base_data.l     = 320;
-            db->base_data.G     = 380;
-            db->base_data.F_m   = 570;
-        break;
+		case 7:
+		    db->base_data.k     = 7;
+		    db->base_data.Cs    = 1.4;
+		    db->base_data.P_V   = 1.7;
+		    db->base_data.n_V   = 150;
+		    db->base_data.i_TCT = 2.5;
+		    db->base_data.i_R   = 6.3;
+		    db->base_data.l     = 320;
+		    db->base_data.G     = 380;
+		    db->base_data.F_m   = 570;
+		break;
 		case 25:
 			db->base_data.k = 25;
 			db->base_data.Cs = 1.4;
@@ -74,7 +74,7 @@ EXPORT_FUNCTION void base_values_init(struct data* db) {
 			db->base_data.G = 530;
 			db->base_data.F_m = 795;
 			break;
-			case 19:
+		case 19:
 			db->base_data.k = 19;
 			db->base_data.Cs = 1.4;
 			db->base_data.P_V = 3.9;
@@ -85,7 +85,7 @@ EXPORT_FUNCTION void base_values_init(struct data* db) {
 			db->base_data.G = 250;
 			db->base_data.F_m = 625;
 			break;
-			case 26:
+		case 26:
 			db->base_data.k = 26;
 			db->base_data.Cs = 1.4;
 			db->base_data.P_V = 5.7;
@@ -96,7 +96,7 @@ EXPORT_FUNCTION void base_values_init(struct data* db) {
 			db->base_data.G = 600;
 			db->base_data.F_m = 1500;
 			break;
-			case 1:
+		case 1:
 			db->base_data.k = 1;
 			db->base_data.Cs = 1.4;
 			db->base_data.P_V = 0.5;
