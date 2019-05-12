@@ -11,7 +11,7 @@
 
 // WITH THIS, YOU HAVE TO INTRODUCE BASE VALUES BY HAND, NO PROMPTS GIVEN
 // USED WITH PHP
-#define PROMPT_BASE_VALUES 1 // prompt base values selection
+#define PROMPT_BASE_VALUES 0 // prompt base values selection
 
 // CHOICE = didn't implement any control logic based on input on startup, for now I'll use this 
 // 1 - computations
@@ -39,35 +39,19 @@ EXPORT_FUNCTION void start_console_app() {
 	}
 	struct arbore_data arbore;
 	
-	arbore.a = 350.0;
-	arbore.b = 290.0;
-	arbore.c = 150.0;
-	arbore.Lrotor = 320;
-	arbore.Lca = 36;
+	arbore.a = 528.0;
+	arbore.b = 432.0;
+	arbore.c = 240.0;
+	arbore.Lrotor = 480;
+	arbore.Lca = 30;
 
-	arbore.Dventilator = 20;
-	arbore.Dca = 20;
-	arbore.Det = 24;
-	arbore.Dr = 30;
-	arbore.Dperii = 35;
-	arbore.Drotor = 40;
-	arbore.Dumar = 45;
-
-	/* Mihaela /*
-	arbore.a = 328.0;
-	arbore.b = 280.0;
-	arbore.c = 150.0;
-	arbore.Lrotor = 300.0;
-
-	arbore.Dventilator = 40;
-	arbore.Dca = 40;
-	arbore.Dperii = 50;
-	arbore.Dr = 40;
-	arbore.Drotor = 60;
-	arbore.Dumar = 65;
-	arbore.Det = 45;
-	arbore.Lca = 82.0;
-	*/
+	arbore.Dventilator = 50;
+	arbore.Dca = 50;
+	arbore.Det = 55;
+	arbore.Dr = 60;
+	arbore.Dperii = 65;
+	arbore.Drotor = 70;
+	arbore.Dumar = 75;
 
 	autocad_generate_arbore(fptr, &arbore);
 
@@ -85,7 +69,7 @@ static int console_main() {
 	setbuf(stdout, NULL);
 
 
-	struct data* data = get_data_struct(7);
+	struct data* data = get_data_struct(666);
 	// base data
 	
 	if(PROMPT_BASE_VALUES) {
@@ -178,6 +162,7 @@ static int console_main() {
 	cap5_compute(data);
 
 	// capitolul 6
+	cap6_get_data(data);
 
 	// print or save data, or both
 	base_print_data(stdout, data);
@@ -186,6 +171,7 @@ static int console_main() {
 	cap3_print_data(stdout, data);
 	cap4_print_data(stdout, data);
 	cap5_print_data(stdout, data);
+	cap6_print_data(stdout, data);
 
 	/* IF YOU WANT TO SAVE THE DATA TO A FILE, UNCOMMENT THIS
 	void* dataFileHandle = fopen("data.txt", "w+");

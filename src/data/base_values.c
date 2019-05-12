@@ -106,7 +106,18 @@ EXPORT_FUNCTION void base_values_init(struct data* db) {
 			db->base_data.l = 200;
 			db->base_data.G = 200;
 			db->base_data.F_m = 300;
-		break;
+			break;
+		case 666:
+			db->base_data.k = 666;
+			db->base_data.Cs = 1.2;
+			db->base_data.P_V = 48;
+			db->base_data.n_V = 97;
+			db->base_data.i_TCT = 1.8;
+			db->base_data.i_R = 5.6;
+			db->base_data.l = 480;
+			db->base_data.G = 100;
+			db->base_data.F_m = 400;
+			break;
 		
 
         default: printf("No valid k value\n");
